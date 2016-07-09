@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845DD6FE1D30B85B009FEFDD /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DD6FD1D30B85B009FEFDD /* CreateGameViewController.swift */; };
 		8465F6B01D2F362A0092E992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465F6AF1D2F362A0092E992 /* AppDelegate.swift */; };
-		8465F6B21D2F362A0092E992 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465F6B11D2F362A0092E992 /* ViewController.swift */; };
+		8465F6B21D2F362A0092E992 /* FViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465F6B11D2F362A0092E992 /* FViewController.swift */; };
 		8465F6B51D2F362A0092E992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8465F6B31D2F362A0092E992 /* Main.storyboard */; };
 		8465F6B71D2F362A0092E992 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8465F6B61D2F362A0092E992 /* Assets.xcassets */; };
 		8465F6BA1D2F362A0092E992 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8465F6B81D2F362A0092E992 /* LaunchScreen.storyboard */; };
@@ -35,9 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		845DD6FD1D30B85B009FEFDD /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
 		8465F6AC1D2F362A0092E992 /* heis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8465F6AF1D2F362A0092E992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8465F6B11D2F362A0092E992 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8465F6B11D2F362A0092E992 /* FViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewController.swift; sourceTree = "<group>"; };
 		8465F6B41D2F362A0092E992 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8465F6B61D2F362A0092E992 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8465F6B91D2F362A0092E992 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,12 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				8465F6AF1D2F362A0092E992 /* AppDelegate.swift */,
-				8465F6B11D2F362A0092E992 /* ViewController.swift */,
+				8465F6B11D2F362A0092E992 /* FViewController.swift */,
 				8465F6B31D2F362A0092E992 /* Main.storyboard */,
 				8465F6B61D2F362A0092E992 /* Assets.xcassets */,
 				8465F6B81D2F362A0092E992 /* LaunchScreen.storyboard */,
 				8465F6BB1D2F362A0092E992 /* Info.plist */,
 				8465F6DD1D2F4BC20092E992 /* LandingViewController.swift */,
+				845DD6FD1D30B85B009FEFDD /* CreateGameViewController.swift */,
 			);
 			path = heis;
 			sourceTree = "<group>";
@@ -259,8 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8465F6B21D2F362A0092E992 /* ViewController.swift in Sources */,
+				8465F6B21D2F362A0092E992 /* FViewController.swift in Sources */,
 				8465F6DE1D2F4BC20092E992 /* LandingViewController.swift in Sources */,
+				845DD6FE1D30B85B009FEFDD /* CreateGameViewController.swift in Sources */,
 				8465F6B01D2F362A0092E992 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +492,7 @@
 				8465F6D61D2F362A0092E992 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8465F6D71D2F362A0092E992 /* Build configuration list for PBXNativeTarget "heisTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +501,7 @@
 				8465F6D91D2F362A0092E992 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8465F6DA1D2F362A0092E992 /* Build configuration list for PBXNativeTarget "heisUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +510,7 @@
 				8465F6DC1D2F362A0092E992 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

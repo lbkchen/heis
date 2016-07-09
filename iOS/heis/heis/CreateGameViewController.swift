@@ -1,14 +1,14 @@
 //
-//  LandingViewController.swift
+//  CreateGameViewController.swift
 //  heis
 //
-//  Created by Ken Chen on 7/7/16.
+//  Created by Ken Chen on 7/8/16.
 //  Copyright © 2016 heis. All rights reserved.
 //
 
 import UIKit
 
-class LandingViewController: UIViewController {
+class CreateGameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +31,5 @@ class LandingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func canceltoLandingViewController(segue: UIStoryboardSegue) {
-        print("Unwinded from")
-    }
-    override func allowedChildViewControllersForUnwindingFromSource(source: UIStoryboardUnwindSegueSource) -> [UIViewController] {
-        <#code#>
-    }
-    
+
 }
