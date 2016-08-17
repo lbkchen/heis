@@ -22,6 +22,16 @@
 		84020E451D6133380020E98A /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84020E401D6133380020E98A /* theme.mp3 */; };
 		84020E4A1D6177010020E98A /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 84020E491D6177010020E98A /* Sprites.atlas */; };
 		84020E4C1D6178500020E98A /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84020E4B1D6178500020E98A /* Array2D.swift */; };
+		84020E4E1D617F050020E98A /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84020E4D1D617F050020E98A /* Block.swift */; };
+		84020E501D6188E30020E98A /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84020E4F1D6188E30020E98A /* Shape.swift */; };
+		847A9D811D62E968009E77F7 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A9D801D62E968009E77F7 /* SquareShape.swift */; };
+		84A0A7D11D63EFAD00DE9A06 /* TShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0A7D01D63EFAD00DE9A06 /* TShape.swift */; };
+		84A0A7D31D63F02200DE9A06 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0A7D21D63F02200DE9A06 /* LineShape.swift */; };
+		84A0A7D51D63F03A00DE9A06 /* LShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0A7D41D63F03A00DE9A06 /* LShape.swift */; };
+		84A0A7D71D63F05A00DE9A06 /* JShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0A7D61D63F05A00DE9A06 /* JShape.swift */; };
+		84A0A7D91D63F0E200DE9A06 /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0A7D81D63F0E200DE9A06 /* SShape.swift */; };
+		84A0A7DB1D63F0FE00DE9A06 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0A7DA1D63F0FE00DE9A06 /* ZShape.swift */; };
+		84A0A7DD1D63F33B00DE9A06 /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0A7DC1D63F33B00DE9A06 /* Swiftris.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +73,16 @@
 		84020E401D6133380020E98A /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
 		84020E491D6177010020E98A /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		84020E4B1D6178500020E98A /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		84020E4D1D617F050020E98A /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
+		84020E4F1D6188E30020E98A /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		847A9D801D62E968009E77F7 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
+		84A0A7D01D63EFAD00DE9A06 /* TShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TShape.swift; sourceTree = "<group>"; };
+		84A0A7D21D63F02200DE9A06 /* LineShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		84A0A7D41D63F03A00DE9A06 /* LShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LShape.swift; sourceTree = "<group>"; };
+		84A0A7D61D63F05A00DE9A06 /* JShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JShape.swift; sourceTree = "<group>"; };
+		84A0A7D81D63F0E200DE9A06 /* SShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
+		84A0A7DA1D63F0FE00DE9A06 /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
+		84A0A7DC1D63F33B00DE9A06 /* Swiftris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +143,16 @@
 				84020DF51D611BA30020E98A /* LaunchScreen.storyboard */,
 				84020DF81D611BA30020E98A /* Info.plist */,
 				84020E4B1D6178500020E98A /* Array2D.swift */,
+				84020E4D1D617F050020E98A /* Block.swift */,
+				84020E4F1D6188E30020E98A /* Shape.swift */,
+				847A9D801D62E968009E77F7 /* SquareShape.swift */,
+				84A0A7D01D63EFAD00DE9A06 /* TShape.swift */,
+				84A0A7D21D63F02200DE9A06 /* LineShape.swift */,
+				84A0A7D41D63F03A00DE9A06 /* LShape.swift */,
+				84A0A7D61D63F05A00DE9A06 /* JShape.swift */,
+				84A0A7D81D63F0E200DE9A06 /* SShape.swift */,
+				84A0A7DA1D63F0FE00DE9A06 /* ZShape.swift */,
+				84A0A7DC1D63F33B00DE9A06 /* Swiftris.swift */,
 			);
 			path = dimo;
 			sourceTree = "<group>";
@@ -294,9 +324,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A0A7D51D63F03A00DE9A06 /* LShape.swift in Sources */,
+				847A9D811D62E968009E77F7 /* SquareShape.swift in Sources */,
 				84020DED1D611BA30020E98A /* GameScene.swift in Sources */,
+				84A0A7D71D63F05A00DE9A06 /* JShape.swift in Sources */,
+				84A0A7DD1D63F33B00DE9A06 /* Swiftris.swift in Sources */,
+				84020E501D6188E30020E98A /* Shape.swift in Sources */,
 				84020E4C1D6178500020E98A /* Array2D.swift in Sources */,
+				84A0A7D31D63F02200DE9A06 /* LineShape.swift in Sources */,
+				84A0A7D91D63F0E200DE9A06 /* SShape.swift in Sources */,
+				84A0A7D11D63EFAD00DE9A06 /* TShape.swift in Sources */,
+				84020E4E1D617F050020E98A /* Block.swift in Sources */,
 				84020DEF1D611BA30020E98A /* GameViewController.swift in Sources */,
+				84A0A7DB1D63F0FE00DE9A06 /* ZShape.swift in Sources */,
 				84020DE91D611BA30020E98A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +566,7 @@
 				84020E131D611BA30020E98A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84020E141D611BA30020E98A /* Build configuration list for PBXNativeTarget "dimoTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +575,7 @@
 				84020E161D611BA30020E98A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84020E171D611BA30020E98A /* Build configuration list for PBXNativeTarget "dimoUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +584,7 @@
 				84020E191D611BA30020E98A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
