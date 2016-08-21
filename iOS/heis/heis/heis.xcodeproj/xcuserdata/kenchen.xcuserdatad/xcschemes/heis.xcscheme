@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8465F6AB1D2F362A0092E992"
+               BlueprintIdentifier = "8476F9FC1D69965E000F4750"
                BuildableName = "heis.app"
                BlueprintName = "heis"
                ReferencedContainer = "container:heis.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8465F6BF1D2F362A0092E992"
+               BlueprintIdentifier = "8476FA141D69965E000F4750"
                BuildableName = "heisTests.xctest"
                BlueprintName = "heisTests"
                ReferencedContainer = "container:heis.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8465F6CA1D2F362A0092E992"
+               BlueprintIdentifier = "8476FA1F1D69965F000F4750"
                BuildableName = "heisUITests.xctest"
                BlueprintName = "heisUITests"
                ReferencedContainer = "container:heis.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8465F6AB1D2F362A0092E992"
+            BlueprintIdentifier = "8476F9FC1D69965E000F4750"
             BuildableName = "heis.app"
             BlueprintName = "heis"
             ReferencedContainer = "container:heis.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8465F6AB1D2F362A0092E992"
+            BlueprintIdentifier = "8476F9FC1D69965E000F4750"
             BuildableName = "heis.app"
             BlueprintName = "heis"
             ReferencedContainer = "container:heis.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8465F6AB1D2F362A0092E992"
+            BlueprintIdentifier = "8476F9FC1D69965E000F4750"
             BuildableName = "heis.app"
             BlueprintName = "heis"
             ReferencedContainer = "container:heis.xcodeproj">

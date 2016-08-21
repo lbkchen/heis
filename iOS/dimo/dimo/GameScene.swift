@@ -78,6 +78,20 @@ class GameScene: SKScene {
         shapeLayer.position = LayerPosition
         shapeLayer.addChild(gameBoard)
         gameLayer.addChild(shapeLayer)
+        
+        // Add theme music ;)
+        let sound = SKAction.playSoundFileNamed("Sounds/theme.mp3", waitForCompletion: false)
+        
+//        runAction(SKAction.repeatActionForever(SKAction.playSoundFileNamed("Sounds/theme.mp3", waitForCompletion: true)))
+//        playSoundAction(SKAction.repeatActionForever(sound))
+    }
+    
+    func playSound(sound: String) {
+        runAction(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
+    }
+    
+    func playSoundAction(sound: SKAction) {
+        runAction(sound)
     }
     
    
@@ -161,6 +175,7 @@ class GameScene: SKScene {
         }
     }
     
+    // Add swag explosions
     func animateCollapsingLines(linesToRemove: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>, completion:() -> ()) {
         var longestDuration: NSTimeInterval = 0
         // #2
