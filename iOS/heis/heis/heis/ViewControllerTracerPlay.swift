@@ -11,7 +11,7 @@ import UIKit
 import GoogleMaps
 
 
-class ViewControllerTracer2: UIViewController, CLLocationManagerDelegate {
+class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
     let locationButton = UIButton(frame: CGRect(x: 150, y: 400, width: 75, height: 40))

@@ -25,7 +25,8 @@
 		8476FA251D69965F000F4750 /* heisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476FA241D69965F000F4750 /* heisUITests.swift */; };
 		8476FA331D6996B9000F4750 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476FA321D6996B9000F4750 /* MainMenuScene.swift */; };
 		8476FA351D699752000F4750 /* SGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476FA341D699752000F4750 /* SGameScene.swift */; };
-		971CCF451D75355F001F8D2D /* ViewControllerTracer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CCF441D75355F001F8D2D /* ViewControllerTracer2.swift */; };
+		971CCF451D75355F001F8D2D /* ViewControllerTracerPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CCF441D75355F001F8D2D /* ViewControllerTracerPlay.swift */; };
+		97BB80031D76A01A00D73C6B /* ViewControllerTracerSetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB80021D76A01A00D73C6B /* ViewControllerTracerSetGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,8 @@
 		8476FA321D6996B9000F4750 /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		8476FA341D699752000F4750 /* SGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGameScene.swift; sourceTree = "<group>"; };
 		9680014D65BD7FD5247D3409 /* Pods-heis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-heis.release.xcconfig"; path = "Pods/Target Support Files/Pods-heis/Pods-heis.release.xcconfig"; sourceTree = "<group>"; };
-		971CCF441D75355F001F8D2D /* ViewControllerTracer2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTracer2.swift; sourceTree = "<group>"; };
+		971CCF441D75355F001F8D2D /* ViewControllerTracerPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTracerPlay.swift; sourceTree = "<group>"; };
+		97BB80021D76A01A00D73C6B /* ViewControllerTracerSetGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTracerSetGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +135,8 @@
 				8476FA041D69965E000F4750 /* GameScene.swift */,
 				8476FA061D69965E000F4750 /* GameViewController.swift */,
 				8476FA081D69965E000F4750 /* Main.storyboard */,
-				971CCF441D75355F001F8D2D /* ViewControllerTracer2.swift */,
+				97BB80021D76A01A00D73C6B /* ViewControllerTracerSetGame.swift */,
+				971CCF441D75355F001F8D2D /* ViewControllerTracerPlay.swift */,
 				8476FA0B1D69965E000F4750 /* Assets.xcassets */,
 				8476FA0D1D69965E000F4750 /* LaunchScreen.storyboard */,
 				8476FA101D69965E000F4750 /* Info.plist */,
@@ -387,11 +390,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				971CCF451D75355F001F8D2D /* ViewControllerTracer2.swift in Sources */,
+				971CCF451D75355F001F8D2D /* ViewControllerTracerPlay.swift in Sources */,
 				8476FA051D69965E000F4750 /* GameScene.swift in Sources */,
 				8476FA351D699752000F4750 /* SGameScene.swift in Sources */,
 				8476FA071D69965E000F4750 /* GameViewController.swift in Sources */,
 				8476FA331D6996B9000F4750 /* MainMenuScene.swift in Sources */,
+				97BB80031D76A01A00D73C6B /* ViewControllerTracerSetGame.swift in Sources */,
 				8476FA011D69965E000F4750 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
