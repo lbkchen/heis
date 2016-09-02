@@ -10,12 +10,15 @@ import UIKit
 import GoogleMaps
 
 class ViewControllerTracerSetGame: UIViewController, CLLocationManagerDelegate {
+    @IBOutlet weak var chooseRole: UISegmentedControl!
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
-    let zoomIncButton = UIButton(frame: CGRect(x: 150, y: 400, width: 120, height: 40))
-    let zoomDecButton = UIButton(frame: CGRect(x: 150, y: 460, width: 120, height: 40))
-    let zoomSetButton = UIButton(frame: CGRect(x: 210, y: 600, width: 180, height: 40))
+    let zoomIncButton = UIButton(frame: CGRect(x: 150, y: 300, width: 140, height: 40))
+    let zoomDecButton = UIButton(frame: CGRect(x: 150, y: 360, width: 140, height: 40))
     var zoomLevel = 15.0
+    var gameLatitude = 0.0
+    var gameLongitude = 0.0
+    var setGameRole = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,31 +34,42 @@ class ViewControllerTracerSetGame: UIViewController, CLLocationManagerDelegate {
         
         // Programatically creating zoom decrease button
         zoomDecButton.backgroundColor = .blackColor()
-        zoomDecButton.setTitle("Decreasom Zoom", forState: .Normal)
+        zoomDecButton.setTitle("Decrease Zoom", forState: .Normal)
         zoomDecButton.addTarget(self, action: #selector(zoomDecButtonAction), forControlEvents: .TouchUpInside)
         self.view.addSubview(zoomDecButton)
         
-        // Programatically creating zoom set button
-        zoomSetButton.backgroundColor = .greenColor()
-        zoomSetButton.setTitle("Set Zoom/Location", forState: .Normal)
-        zoomSetButton.addTarget(self, action: #selector(zoomSetButtonAction), forControlEvents: .TouchUpInside)
-        self.view.addSubview(zoomSetButton)
-
     }
     
+    @IBAction func startGameButton(sender: AnyObject) {
+        // zoomLevel will be stored to use as game's zoom level, but for now it's just printed out
+        // Ditto above with gameLatitude and gameLongitude and setGameRole (true=tracer, false=traitor)
+        print(zoomLevel)
+        var locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
+        gameLatitude = locValue.latitude
+        gameLongitude = locValue.longitude
+        print(gameLatitude)
+        print(gameLongitude)
+        
+        if (chooseRole.selectedSegmentIndex == 0) {
+            //performSegueWithIdentifier("setGame-tracerKey", sender: nil)
+            setGameRole = true
+        }
+        else {
+            setGameRole = false
+        }
+        print(setGameRole)
+    
+        // Then app will transition to view displaying game key
+    }
+ 
     func zoomIncButtonAction(sender: UIButton!) {
-        zoomLevel = zoomLevel + 1
+        zoomLevel = zoomLevel + 0.25
     }
     
     func zoomDecButtonAction(sender: UIButton!) {
-        zoomLevel = zoomLevel - 1
+        zoomLevel = zoomLevel - 0.25
     }
     
-    func zoomSetButtonAction(sender: UIButton!) {
-        // zoomLevel will be stored to use as game's zoom level, but for now it's just printed out
-        print(zoomLevel)
-        // Then the program will transition to provide the game key
-    }
 
     // Baffling code
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -74,10 +88,6 @@ class ViewControllerTracerSetGame: UIViewController, CLLocationManagerDelegate {
             var locValue:CLLocationCoordinate2D = manager.location!.coordinate
             //latitude = locValue.latitude
             //longitude = locValue.longitude
-            var speed: CLLocationSpeed = manager.location!.speed
-            //speedVal = speed.advancedBy(1.0)
-            var course: CLLocationDirection = manager.location!.course
-            //courseVal = course.advancedBy(2.5)
         }
         
     }
