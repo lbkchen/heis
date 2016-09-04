@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="196" y="298"/>
         </scene>
-        <!--View Controller Tracer Set Game-->
+        <!--View Controller Set Game-->
         <scene sceneID="zqs-qI-Y46">
             <objects>
-                <viewController id="Akz-8x-HzC" customClass="ViewControllerTracerSetGame" customModule="heis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Akz-8x-HzC" customClass="ViewControllerSetGame" customModule="heis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pYg-tG-mT8"/>
                         <viewControllerLayoutGuide type="bottom" id="mtT-Jl-Kyl"/>
@@ -36,16 +36,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsP-fb-Pdn" customClass="GMSMapView">
-                                <rect key="frame" x="64" y="58" width="281" height="240"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f55-s6-5bz">
-                                <rect key="frame" x="291" y="518" width="78" height="30"/>
-                                <state key="normal" title="Start Game"/>
+                                <rect key="frame" x="296" y="518" width="68" height="30"/>
+                                <state key="normal" title="Set Game"/>
                                 <connections>
                                     <action selector="startGameButton:" destination="Akz-8x-HzC" eventType="touchUpInside" id="XKs-Qq-m0a"/>
-                                    <segue destination="7iS-SW-cIr" kind="show" id="uVz-5X-vHX"/>
+                                    <segue destination="7iS-SW-cIr" kind="show" identifier="setGame-setKey" id="uVz-5X-vHX"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5SP-Bc-hwI">
@@ -61,6 +57,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsP-fb-Pdn" customClass="GMSMapView">
+                                <rect key="frame" x="20" y="20" width="368" height="409"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="207" y="1116"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Set Key-->
         <scene sceneID="qm6-pW-POc">
             <objects>
-                <viewController id="7iS-SW-cIr" sceneMemberID="viewController">
+                <viewController id="7iS-SW-cIr" customClass="ViewControllerSetKey" customModule="heis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5rV-f7-4in"/>
                         <viewControllerLayoutGuide type="bottom" id="7Ra-oJ-MdG"/>
@@ -86,8 +86,23 @@
                     <view key="view" contentMode="scaleToFill" id="ZgP-Bv-Kng">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AK2-gg-3fw" customClass="GMSMapView">
+                                <rect key="frame" x="20" y="20" width="560" height="536"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="AK2-gg-3fw" secondAttribute="trailing" id="EDw-pM-WAD"/>
+                            <constraint firstItem="AK2-gg-3fw" firstAttribute="leading" secondItem="ZgP-Bv-Kng" secondAttribute="leadingMargin" id="KXn-du-yHt"/>
+                            <constraint firstItem="7Ra-oJ-MdG" firstAttribute="top" secondItem="AK2-gg-3fw" secondAttribute="bottom" id="L8A-OG-68K"/>
+                            <constraint firstItem="AK2-gg-3fw" firstAttribute="top" secondItem="5rV-f7-4in" secondAttribute="bottom" id="W7J-Ta-4Z6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="AK2-gg-3fw" id="f1g-BE-zow"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8k-BE-vj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,10 +120,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAw-2j-seS" customClass="GMSMapView">
-                                <rect key="frame" x="20" y="20" width="560" height="580"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOc-z3-hKR">
                                 <rect key="frame" x="170" y="549" width="150" height="21"/>
                                 <constraints>
@@ -127,6 +138,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAw-2j-seS" customClass="GMSMapView">
+                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
