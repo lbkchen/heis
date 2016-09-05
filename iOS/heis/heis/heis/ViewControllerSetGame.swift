@@ -15,7 +15,7 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let zoomIncButton = UIButton(frame: CGRect(x: 150, y: 300, width: 140, height: 40))
     let zoomDecButton = UIButton(frame: CGRect(x: 150, y: 360, width: 140, height: 40))
-    var zoomLevel = 15.0
+    var zoomLevel = 16.0
     var latitude = 0.0
     var longitude = 0.0
     var setGameRole = true
@@ -45,12 +45,14 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
         // zoomLevel will be stored to use as game's zoom level, but for now it's just printed out
         // Ditto above with latitude and longitude and setGameRole (true=tracer, false=traitor)
 
-        if (chooseRole.selectedSegmentIndex == 0) {
+        /*if (chooseRole.selectedSegmentIndex == 0) {
             setGameRole = true
+
         }
         else {
             setGameRole = false
         }
+        */
     }
  
     func zoomIncButtonAction(sender: UIButton!) {
@@ -73,13 +75,22 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: Float(zoomLevel), bearing: 0, viewingAngle: 0)
-            var locValue:CLLocationCoordinate2D = manager.location!.coordinate
-            latitude = locValue.latitude
-            longitude = locValue.longitude
         }
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if (chooseRole.selectedSegmentIndex == 0) {
+            setGameRole = true
+            
+        }
+        else {
+            setGameRole = false
+        }
+        var locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
+        latitude = locValue.latitude
+        longitude = locValue.longitude
+
         if (segue.identifier == "setGame-setKey") {
             var VCSetGame = segue.destinationViewController as! ViewControllerSetKey;
             VCSetGame.gameZoomLevel = zoomLevel

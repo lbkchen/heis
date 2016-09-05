@@ -31,6 +31,13 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
     var arrowsArray = [CAShapeLayer](count: 3, repeatedValue: CAShapeLayer())
     var lastAccessedVelocity = false
     
+    // TO DO: Use these to set map
+    var gameZoomLevel: Double!
+    var gameLatitude: Double!
+    var gameLongitude: Double!
+    var gameRole: Bool!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Get authorization to get user's location
@@ -96,7 +103,7 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         lastAccessedVelocity = false
         
         // Start the timer
-        minuteTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(pressedTimerAction), userInfo: nil, repeats: false)
+        minuteTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(clueTimerAction), userInfo: nil, repeats: false)
         
     }
     func velocityButtonAction(sender: UIButton!) {
@@ -133,11 +140,11 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         lastAccessedVelocity = true
         
         // Start the timer
-        minuteTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(pressedTimerAction), userInfo: nil, repeats: false)
+        minuteTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(clueTimerAction), userInfo: nil, repeats: false)
         
     }
     
-    func pressedTimerAction() {
+    func clueTimerAction() {
         // Displays button again after timer reaches end of cycle
         self.view.addSubview(locationButton)
         self.view.addSubview(velocityButton)
