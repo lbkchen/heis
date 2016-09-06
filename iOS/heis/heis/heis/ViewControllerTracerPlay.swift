@@ -10,6 +10,7 @@
 import UIKit
 import GoogleMaps
 
+// TO DO: make countdown pages before TracerPlay and Traitor Play
 
 class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: GMSMapView!
@@ -31,12 +32,11 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
     var arrowsArray = [CAShapeLayer](count: 3, repeatedValue: CAShapeLayer())
     var lastAccessedVelocity = false
     
-    // TO DO: Use these to set map
     var gameZoomLevel: Double!
     var gameLatitude: Double!
     var gameLongitude: Double!
     var gameRole: Bool!
-
+    var gameCountdownMinutes: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +61,11 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         
         // Shows clock timer
         var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("clockTimerAction"), userInfo: nil, repeats: true)
+        
+        // Sets map
+        var coord = CLLocationCoordinate2D(latitude: gameLatitude, longitude: gameLongitude)
+        mapView.camera = GMSCameraPosition(target: coord, zoom: Float(gameZoomLevel), bearing: 0, viewingAngle: 0)
+
     }
     
     func clockTimerAction(){
@@ -160,7 +165,7 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            //mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
             
             var locValue:CLLocationCoordinate2D = manager.location!.coordinate
             latitude = locValue.latitude

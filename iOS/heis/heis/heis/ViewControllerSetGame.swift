@@ -10,15 +10,21 @@ import UIKit
 import GoogleMaps
 
 class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
-    @IBOutlet weak var chooseRole: UISegmentedControl!
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
     let zoomIncButton = UIButton(frame: CGRect(x: 150, y: 300, width: 140, height: 40))
     let zoomDecButton = UIButton(frame: CGRect(x: 150, y: 360, width: 140, height: 40))
+    
+    @IBOutlet weak var countdownStepper: UIStepper!
+    @IBOutlet weak var countdownLabel: UILabel!
+
+    @IBOutlet weak var chooseRole: UISegmentedControl!
+
     var zoomLevel = 16.0
     var latitude = 0.0
     var longitude = 0.0
     var setGameRole = true
+    var countdownMinutes = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +45,19 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
         zoomDecButton.addTarget(self, action: #selector(zoomDecButtonAction), forControlEvents: .TouchUpInside)
         self.view.addSubview(zoomDecButton)
         
+        // Properties of countdownStepper
+        countdownStepper.wraps = true
+        countdownStepper.autorepeat = true
+        countdownStepper.maximumValue = 0
+        countdownStepper.maximumValue = 30
+        countdownStepper.value = 3
     }
-    
+    @IBAction func countdownStepperAction(sender: UIStepper) {
+        countdownMinutes = Int(sender.value)
+        countdownLabel.text = "Countdown: \(Int(sender.value)) min"
+        
+    }
+
     @IBAction func startGameButton(sender: AnyObject) {
         // zoomLevel will be stored to use as game's zoom level, but for now it's just printed out
         // Ditto above with latitude and longitude and setGameRole (true=tracer, false=traitor)
@@ -97,6 +114,8 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
             VCSetGame.gameLatitude = latitude
             VCSetGame.gameLongitude = longitude
             VCSetGame.gameRole = setGameRole
+            VCSetGame.gameCountdownMinutes = countdownMinutes
+
             
         }
     }

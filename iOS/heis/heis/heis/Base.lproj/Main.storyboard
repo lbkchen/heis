@@ -36,31 +36,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f55-s6-5bz">
-                                <rect key="frame" x="296" y="518" width="68" height="30"/>
-                                <state key="normal" title="Set Game"/>
-                                <connections>
-                                    <action selector="startGameButton:" destination="Akz-8x-HzC" eventType="touchUpInside" id="XKs-Qq-m0a"/>
-                                    <segue destination="7iS-SW-cIr" kind="show" identifier="setGame-setKey" id="uVz-5X-vHX"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5SP-Bc-hwI">
-                                <rect key="frame" x="166" y="494" width="109" height="29"/>
+                                <rect key="frame" x="165" y="466" width="109" height="29"/>
                                 <segments>
                                     <segment title="Tracer"/>
                                     <segment title="Traitor"/>
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I'll play as the:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpQ-Ob-mIx">
-                                <rect key="frame" x="166" y="457" width="108" height="21"/>
+                                <rect key="frame" x="166" y="437" width="108" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsP-fb-Pdn" customClass="GMSMapView">
                                 <rect key="frame" x="20" y="20" width="368" height="409"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="2o7-Bg-DzF">
+                                <rect key="frame" x="198" y="519" width="94" height="29"/>
+                                <connections>
+                                    <action selector="countdownStepperAction:" destination="Akz-8x-HzC" eventType="valueChanged" id="hcF-cS-Cks"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Countdown: 3 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ef-RD-yuB">
+                                <rect key="frame" x="25" y="522" width="140" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f55-s6-5bz">
+                                <rect key="frame" x="331" y="526" width="68" height="30"/>
+                                <state key="normal" title="Set Game"/>
+                                <connections>
+                                    <action selector="startGameButton:" destination="Akz-8x-HzC" eventType="touchUpInside" id="XKs-Qq-m0a"/>
+                                    <segue destination="7iS-SW-cIr" kind="show" identifier="setGame-setKey" id="uVz-5X-vHX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -68,6 +80,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="chooseRole" destination="5SP-Bc-hwI" id="ZYV-MD-OIV"/>
+                        <outlet property="countdownLabel" destination="6ef-RD-yuB" id="LGl-pL-AZC"/>
+                        <outlet property="countdownStepper" destination="2o7-Bg-DzF" id="Th1-VA-wiW"/>
                         <outlet property="mapView" destination="MsP-fb-Pdn" id="QIJ-Es-lrw"/>
                     </connections>
                 </viewController>
@@ -190,8 +204,23 @@
                     <view key="view" contentMode="scaleToFill" id="ntY-VR-zuD" customClass="ViewController">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTp-Vg-Rpb" customClass="GMSMapView">
+                                <rect key="frame" x="20" y="20" width="560" height="536"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0XC-6O-2Ii" firstAttribute="top" secondItem="WTp-Vg-Rpb" secondAttribute="bottom" id="70Y-a5-pYb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WTp-Vg-Rpb" secondAttribute="trailing" id="8fm-pn-clU"/>
+                            <constraint firstItem="WTp-Vg-Rpb" firstAttribute="top" secondItem="PbQ-7F-uuD" secondAttribute="bottom" id="huU-ip-cSo"/>
+                            <constraint firstItem="WTp-Vg-Rpb" firstAttribute="leading" secondItem="ntY-VR-zuD" secondAttribute="leadingMargin" id="tgB-pn-qi5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="WTp-Vg-Rpb" id="FXY-zz-uAk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KoE-Tx-iwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

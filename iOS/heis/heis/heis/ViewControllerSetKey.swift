@@ -20,6 +20,7 @@ class ViewControllerSetKey: UIViewController, CLLocationManagerDelegate {
     var gameLatitude: Double!
     var gameLongitude: Double!
     var gameRole: Bool!
+    var gameCountdownMinutes: Int!
     
     override func viewDidLoad() {
         print("gameRole 1 \(gameRole)")
@@ -60,6 +61,7 @@ class ViewControllerSetKey: UIViewController, CLLocationManagerDelegate {
             VCSetGame.gameLatitude = gameLatitude
             VCSetGame.gameLongitude = gameLongitude
             VCSetGame.gameRole = gameRole
+            VCSetGame.gameCountdownMinutes = gameCountdownMinutes
         }
         if (segue.identifier == "setKey-traitorPlay") {
             var VCSetGame = segue.destinationViewController as! ViewControllerTraitorPlay;
@@ -67,6 +69,7 @@ class ViewControllerSetKey: UIViewController, CLLocationManagerDelegate {
             VCSetGame.gameLatitude = gameLatitude
             VCSetGame.gameLongitude = gameLongitude
             VCSetGame.gameRole = gameRole
+            VCSetGame.gameCountdownMinutes = gameCountdownMinutes
         }
 
     }
