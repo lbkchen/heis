@@ -45,26 +45,26 @@ class ViewControllerSetKey: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func startGameButton(sender: UIButton) {
         if (gameRole == true) {
-            self.performSegueWithIdentifier("setKey-tracerPlay", sender: self)
+            self.performSegueWithIdentifier("setKey-tracerCountdown", sender: self)
             print("gameRole true")
         }
         else {
-            self.performSegueWithIdentifier("setKey-traitorPlay", sender: self)
+            self.performSegueWithIdentifier("setKey-traitorCountdown", sender: self)
             print("gameRole false")
         }
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "setKey-tracerPlay") {
-            var VCSetGame = segue.destinationViewController as! ViewControllerTracerPlay;
+        if (segue.identifier == "setKey-tracerCountdown") {
+            var VCSetGame = segue.destinationViewController as! ViewControllerTracerCountdown;
             VCSetGame.gameZoomLevel = gameZoomLevel
             VCSetGame.gameLatitude = gameLatitude
             VCSetGame.gameLongitude = gameLongitude
             VCSetGame.gameRole = gameRole
             VCSetGame.gameCountdownMinutes = gameCountdownMinutes
         }
-        if (segue.identifier == "setKey-traitorPlay") {
-            var VCSetGame = segue.destinationViewController as! ViewControllerTraitorPlay;
+        if (segue.identifier == "setKey-traitorCountdown") {
+            var VCSetGame = segue.destinationViewController as! ViewControllerTraitorCountdown;
             VCSetGame.gameZoomLevel = gameZoomLevel
             VCSetGame.gameLatitude = gameLatitude
             VCSetGame.gameLongitude = gameLongitude

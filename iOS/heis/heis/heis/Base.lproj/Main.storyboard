@@ -59,12 +59,6 @@
                                     <action selector="countdownStepperAction:" destination="Akz-8x-HzC" eventType="valueChanged" id="hcF-cS-Cks"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Countdown: 3 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ef-RD-yuB">
-                                <rect key="frame" x="25" y="522" width="140" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f55-s6-5bz">
                                 <rect key="frame" x="331" y="526" width="68" height="30"/>
                                 <state key="normal" title="Set Game"/>
@@ -73,6 +67,12 @@
                                     <segue destination="7iS-SW-cIr" kind="show" identifier="setGame-setKey" id="uVz-5X-vHX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Countdown: 3 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ef-RD-yuB">
+                                <rect key="frame" x="14" y="523" width="176" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -128,13 +128,13 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="AK2-gg-3fw" id="f1g-BE-zow"/>
-                        <segue destination="HfC-Gn-4ca" kind="show" identifier="setKey-tracerPlay" id="7ef-XX-J68"/>
-                        <segue destination="AnD-PX-OMH" kind="show" identifier="setKey-traitorPlay" id="vvT-hN-bCN"/>
+                        <segue destination="uYn-7j-U0v" kind="show" identifier="setKey-tracerCountdown" id="Dpz-Cr-7z5"/>
+                        <segue destination="lI8-DG-oZ4" kind="show" identifier="setKey-traitorCountdown" id="LE1-FQ-RRN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8k-BE-vj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="827" y="1600"/>
+            <point key="canvasLocation" x="806" y="1615"/>
         </scene>
         <!--View Controller Tracer Play-->
         <scene sceneID="p8p-P2-eCc">
@@ -191,7 +191,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uF9-Ep-3Co" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="1116"/>
+            <point key="canvasLocation" x="2141" y="1123"/>
+        </scene>
+        <!--View Controller Tracer Countdown-->
+        <scene sceneID="ENr-zD-cFu">
+            <objects>
+                <viewController id="uYn-7j-U0v" customClass="ViewControllerTracerCountdown" customModule="heis" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l7K-IC-zmO"/>
+                        <viewControllerLayoutGuide type="bottom" id="oGZ-Af-zaQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Gm-Af-J9s">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ew7-Mt-Wo1">
+                                <rect key="frame" x="204" y="284" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="countdownTimerLabel" destination="ew7-Mt-Wo1" id="Fmz-aM-0Gc"/>
+                        <segue destination="HfC-Gn-4ca" kind="show" identifier="tracerCountdown-tracerPlay" id="oCy-3s-ObD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KcG-lf-Xy5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489" y="1123"/>
+        </scene>
+        <!--View Controller Traitor Countdown-->
+        <scene sceneID="3cp-Dy-1Qx">
+            <objects>
+                <viewController id="lI8-DG-oZ4" customClass="ViewControllerTraitorCountdown" customModule="heis" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PhY-JZ-pgJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="TkE-4D-e0t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6ud-C3-Rpb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ha4-7m-GZq">
+                                <rect key="frame" x="177" y="319" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="countdownTimerLabel" destination="ha4-7m-GZq" id="526-Sq-Tqd"/>
+                        <segue destination="AnD-PX-OMH" kind="show" identifier="traitorCountdown-traitorPlay" id="xhz-Hp-D23"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Lx-Tr-IvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1503" y="2071"/>
         </scene>
         <!--View Controller Traitor Play-->
         <scene sceneID="fi8-iI-kIt">
@@ -224,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KoE-Tx-iwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="2074"/>
+            <point key="canvasLocation" x="2158" y="2071"/>
         </scene>
     </scenes>
 </document>

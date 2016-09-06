@@ -28,7 +28,7 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
     var minuteTimer = NSTimer()
     var startingX = 70.0
     var startingY = 70.0
-    let radianMultiplier = 0.0174533
+    let radianMultiplier = M_PI/180
     var arrowsArray = [CAShapeLayer](count: 3, repeatedValue: CAShapeLayer())
     var lastAccessedVelocity = false
     
@@ -36,7 +36,6 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
     var gameLatitude: Double!
     var gameLongitude: Double!
     var gameRole: Bool!
-    var gameCountdownMinutes: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -248,7 +247,7 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
             arrowEndingX2 = endingX + arrowLength * sin(radianMultiplier * (270 + 45 - angle))
             arrowEndingY2 = endingY + arrowLength * cos(radianMultiplier * (270 + 45 - angle))
         }
-        else if (angle > 270 && angle <= 361){
+        else if (angle > 270 && angle <= 360){
             endingX = startingX - speedLineMultiplier * sin(radianMultiplier * (360 - angle))
             endingY = startingY - speedLineMultiplier * cos(radianMultiplier * (360 - angle))
             arrowEndingX1 = endingX - arrowLength * cos(radianMultiplier * (360 + 45 - angle))
