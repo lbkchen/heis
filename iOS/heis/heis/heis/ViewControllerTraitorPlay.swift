@@ -17,6 +17,7 @@ class ViewControllerTraitorPlay: UIViewController, CLLocationManagerDelegate{
     var gameLatitude: Double!
     var gameLongitude: Double!
     var gameRole: Bool!
+    var gameCountdownMinutes: Int!
     
     let locationManager = CLLocationManager()
     
