@@ -34,15 +34,15 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         
         // Programatically creating zoom increase button
-        zoomIncButton.backgroundColor = .blueColor()
-        zoomIncButton.setTitle("Increase Zoom", forState: .Normal)
-        zoomIncButton.addTarget(self, action: #selector(zoomIncButtonAction), forControlEvents: .TouchUpInside)
+        zoomIncButton.backgroundColor = UIColor.black
+        zoomIncButton.setTitle("Increase Zoom", for: UIControlState())
+        zoomIncButton.addTarget(self, action: #selector(zoomIncButtonAction), for: .touchUpInside)
         self.view.addSubview(zoomIncButton)
         
         // Programatically creating zoom decrease button
-        zoomDecButton.backgroundColor = .blackColor()
-        zoomDecButton.setTitle("Decrease Zoom", forState: .Normal)
-        zoomDecButton.addTarget(self, action: #selector(zoomDecButtonAction), forControlEvents: .TouchUpInside)
+        //zoomDecButton.backgroundColor = .black()
+        zoomDecButton.setTitle("Decrease Zoom", for: UIControlState())
+        zoomDecButton.addTarget(self, action: #selector(zoomDecButtonAction), for: .touchUpInside)
         self.view.addSubview(zoomDecButton)
         
         // Properties of countdownStepper
@@ -52,13 +52,13 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
         countdownStepper.maximumValue = 30
         countdownStepper.value = 3
     }
-    @IBAction func countdownStepperAction(sender: UIStepper) {
+    @IBAction func countdownStepperAction(_ sender: UIStepper) {
         countdownMinutes = Int(sender.value)
         countdownLabel.text = "Countdown: \(Int(sender.value)) min"
         
     }
 
-    @IBAction func startGameButton(sender: AnyObject) {
+    @IBAction func startGameButton(_ sender: AnyObject) {
         // zoomLevel will be stored to use as game's zoom level, but for now it's just printed out
         // Ditto above with latitude and longitude and setGameRole (true=tracer, false=traitor)
 
@@ -72,30 +72,30 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
         */
     }
  
-    func zoomIncButtonAction(sender: UIButton!) {
+    func zoomIncButtonAction(_ sender: UIButton!) {
         zoomLevel = zoomLevel + 0.25
     }
     
-    func zoomDecButtonAction(sender: UIButton!) {
+    func zoomDecButtonAction(_ sender: UIButton!) {
         zoomLevel = zoomLevel - 0.25
     }
     
 
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == .AuthorizedWhenInUse) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if (status == .authorizedWhenInUse) {
             locationManager.startUpdatingLocation()
-            mapView.myLocationEnabled = true
+            mapView.isMyLocationEnabled = true
             
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: Float(zoomLevel), bearing: 0, viewingAngle: 0)
         }
         
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         
         if (chooseRole.selectedSegmentIndex == 0) {
             setGameRole = true
@@ -104,12 +104,12 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
         else {
             setGameRole = false
         }
-        var locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
+        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
         latitude = locValue.latitude
         longitude = locValue.longitude
 
         if (segue.identifier == "setGame-setKey") {
-            var VCSetGame = segue.destinationViewController as! ViewControllerSetKey;
+            let VCSetGame = segue.destination as! ViewControllerSetKey;
             VCSetGame.gameZoomLevel = zoomLevel
             VCSetGame.gameLatitude = latitude
             VCSetGame.gameLongitude = longitude

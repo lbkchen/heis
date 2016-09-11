@@ -9,6 +9,7 @@
 import XCTest
 @testable import heis
 
+
 class heisTests: XCTestCase {
     
     override func setUp() {
@@ -28,7 +29,7 @@ class heisTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

@@ -25,18 +25,17 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
     var longitude = 0.0
     var speedVal = 0.0
     var courseVal = 0.0
-    var minuteTimer = NSTimer()
+    var minuteTimer = Timer()
     var startingX = 70.0
     var startingY = 70.0
     let radianMultiplier = 0.0174533
-    var arrowsArray = [CAShapeLayer](count: 3, repeatedValue: CAShapeLayer())
+    var arrowsArray = [CAShapeLayer](repeating: CAShapeLayer(), count: 3)
     var lastAccessedVelocity = false
     
     var gameZoomLevel: Double!
     var gameLatitude: Double!
     var gameLongitude: Double!
     var gameRole: Bool!
-    var gameCountdownMinutes: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,22 +44,22 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         
         // Programatically creating location button
-        locationButton.backgroundColor = .blueColor()
-        locationButton.setTitle("Location", forState: .Normal)
-        locationButton.addTarget(self, action: #selector(locationButtonAction), forControlEvents: .TouchUpInside)
+        //locationButton.backgroundColor = .blue()
+        locationButton.setTitle("Location", for: UIControlState())
+        locationButton.addTarget(self, action: #selector(locationButtonAction), for: .touchUpInside)
         self.view.addSubview(locationButton)
         
         // Programatically creating velocity button
-        velocityButton.backgroundColor = .blackColor()
-        velocityButton.setTitle("Velocity", forState: .Normal)
-        velocityButton.addTarget(self, action: #selector(velocityButtonAction), forControlEvents: .TouchUpInside)
+        //velocityButton.backgroundColor = .black()
+        velocityButton.setTitle("Velocity", for: UIControlState())
+        velocityButton.addTarget(self, action: #selector(velocityButtonAction), for: .touchUpInside)
         self.view.addSubview(velocityButton)
         
         // Hide speed label at first
-        speedLabel.hidden = true
+        speedLabel.isHidden = true
         
         // Shows clock timer
-        var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("clockTimerAction"), userInfo: nil, repeats: true)
+        var timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewControllerTracerPlay.clockTimerAction), userInfo: nil, repeats: true)
         
         // Sets map
         var coord = CLLocationCoordinate2D(latitude: gameLatitude, longitude: gameLongitude)
@@ -83,11 +82,11 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         count+=1
     }
     
-    func locationButtonAction(sender: UIButton!) {
+    func locationButtonAction(_ sender: UIButton!) {
         
         // Gets rid of old marker
         if (lastAccessedVelocity == true) {
-            speedLabel.hidden = true
+            speedLabel.isHidden = true
             
         }
         else {
@@ -108,14 +107,14 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         lastAccessedVelocity = false
         
         // Start the timer
-        minuteTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(clueTimerAction), userInfo: nil, repeats: false)
+        minuteTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(clueTimerAction), userInfo: nil, repeats: false)
         
     }
-    func velocityButtonAction(sender: UIButton!) {
+    func velocityButtonAction(_ sender: UIButton!) {
         
         // Gets rid of old marker
         if (lastAccessedVelocity == true) {
-            speedLabel.hidden = true
+            speedLabel.isHidden = true
             
         }
         else {
@@ -128,7 +127,7 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         // Shows speed
         speedLabel.text = "Velocity: \(speedVal)"
         
-        speedLabel.hidden = false
+        speedLabel.isHidden = false
         self.view.addSubview(speedLabel)
         
         var arrow = drawDirection(courseVal, speedLineMultiplier: 50.0, arrowLength: 10.0)
@@ -145,7 +144,7 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         lastAccessedVelocity = true
         
         // Start the timer
-        minuteTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(clueTimerAction), userInfo: nil, repeats: false)
+        minuteTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(clueTimerAction), userInfo: nil, repeats: false)
         
     }
     
@@ -156,24 +155,24 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
     }
     
     // Baffling code
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == .AuthorizedWhenInUse) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if (status == .authorizedWhenInUse) {
             locationManager.startUpdatingLocation()
-            mapView.myLocationEnabled = true
+            mapView.isMyLocationEnabled = true
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             //mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
             
-            var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+            let locValue:CLLocationCoordinate2D = manager.location!.coordinate
             latitude = locValue.latitude
             longitude = locValue.longitude
-            var speed: CLLocationSpeed = manager.location!.speed
-            speedVal = speed.advancedBy(1.0)
-            var course: CLLocationDirection = manager.location!.course
-            courseVal = course.advancedBy(2.5)
+            let speed: CLLocationSpeed = manager.location!.speed
+            speedVal = speed.advanced(by: 1.0)
+            let course: CLLocationDirection = manager.location!.course
+            courseVal = course.advanced(by: 2.5)
         }
         
     }
@@ -190,7 +189,7 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
      }
      */
     
-    func makeMarker(latitudeVal: Double, longitudeVal: Double, titleVal: String, snippetVal: String, myMapView: GMSMapView)
+    func makeMarker(_ latitudeVal: Double, longitudeVal: Double, titleVal: String, snippetVal: String, myMapView: GMSMapView)
         -> GMSMarker {
             // Returns a marker in the center of the map.
             let marker = GMSMarker()
@@ -212,10 +211,10 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
      */
     
     // Draws a line pointing in a course angle's direction
-    func drawDirection(angle: Double, speedLineMultiplier: Double, arrowLength: Double) -> [CAShapeLayer] {
+    func drawDirection(_ angle: Double, speedLineMultiplier: Double, arrowLength: Double) -> [CAShapeLayer] {
         var endingX = 0.0
         var endingY = 0.0
-        let startingPoint = CGPointMake(CGFloat(startingX), CGFloat(startingY))
+        let startingPoint = CGPoint(x: CGFloat(startingX), y: CGFloat(startingY))
         var arrowEndingX1 = 0.0
         var arrowEndingY1 = 0.0
         var arrowEndingX2 = 0.0
@@ -259,29 +258,29 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         else{
             print("Invalid angle: \(angle)")
         }
-        let endingPoint = CGPointMake(CGFloat(endingX), CGFloat(endingY))
-        let arrowEndingPoint1 = CGPointMake(CGFloat(arrowEndingX1), CGFloat(arrowEndingY1))
-        let arrowEndingPoint2 = CGPointMake(CGFloat(arrowEndingX2), CGFloat(arrowEndingY2))
+        let endingPoint = CGPoint(x: CGFloat(endingX), y: CGFloat(endingY))
+        let arrowEndingPoint1 = CGPoint(x: CGFloat(arrowEndingX1), y: CGFloat(arrowEndingY1))
+        let arrowEndingPoint2 = CGPoint(x: CGFloat(arrowEndingX2), y: CGFloat(arrowEndingY2))
         // Draws direction line
-        arrowsArray[0] = drawLine(startingPoint, toPoint: endingPoint, ofColor: UIColor.blackColor(), inView: self.view)
+        arrowsArray[0] = drawLine(startingPoint, toPoint: endingPoint, ofColor: UIColor.black, inView: self.view)
         
         //Draws the 2 arrow lines
-        arrowsArray[1] = drawLine(endingPoint, toPoint: arrowEndingPoint1, ofColor: UIColor.blackColor(), inView: self.view)
-        arrowsArray[2] = drawLine(endingPoint, toPoint: arrowEndingPoint2, ofColor: UIColor.blackColor(), inView: self.view)
+        arrowsArray[1] = drawLine(endingPoint, toPoint: arrowEndingPoint1, ofColor: UIColor.black, inView: self.view)
+        arrowsArray[2] = drawLine(endingPoint, toPoint: arrowEndingPoint2, ofColor: UIColor.black, inView: self.view)
         
         return arrowsArray
     }
     
-    func drawLine(start : CGPoint, toPoint end:CGPoint, ofColor lineColor: UIColor, inView view:UIView) -> CAShapeLayer {
+    func drawLine(_ start : CGPoint, toPoint end:CGPoint, ofColor lineColor: UIColor, inView view:UIView) -> CAShapeLayer {
         // Design the path
-        var path = UIBezierPath()
-        path.moveToPoint(start)
-        path.addLineToPoint(end)
+        let path = UIBezierPath()
+        path.move(to: start)
+        path.addLine(to: end)
         
         // Design path in layer
-        var shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.CGPath
-        shapeLayer.strokeColor = lineColor.CGColor
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.strokeColor = lineColor.cgColor
         shapeLayer.lineWidth = 3.0
         return shapeLayer
     }

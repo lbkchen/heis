@@ -17,7 +17,6 @@ class ViewControllerTraitorPlay: UIViewController, CLLocationManagerDelegate{
     var gameLatitude: Double!
     var gameLongitude: Double!
     var gameRole: Bool!
-    var gameCountdownMinutes: Int!
     
     let locationManager = CLLocationManager()
     
@@ -29,19 +28,19 @@ class ViewControllerTraitorPlay: UIViewController, CLLocationManagerDelegate{
         locationManager.requestWhenInUseAuthorization()
         
         // Sets map
-        var coord = CLLocationCoordinate2D(latitude: gameLatitude, longitude: gameLongitude)
+        let coord = CLLocationCoordinate2D(latitude: gameLatitude, longitude: gameLongitude)
         mapView.camera = GMSCameraPosition(target: coord, zoom: Float(gameZoomLevel), bearing: 0, viewingAngle: 0)
 
     }
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == .AuthorizedWhenInUse) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if (status == .authorizedWhenInUse) {
             locationManager.startUpdatingLocation()
-            mapView.myLocationEnabled = true
+            mapView.isMyLocationEnabled = true
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             //mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
         }

@@ -26,6 +26,8 @@
 		8476FA351D699752000F4750 /* SGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476FA341D699752000F4750 /* SGameScene.swift */; };
 		971CCF451D75355F001F8D2D /* ViewControllerTracerPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CCF441D75355F001F8D2D /* ViewControllerTracerPlay.swift */; };
 		978AA3291D7CF68600DB3927 /* ViewControllerTraitorPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978AA3281D7CF68600DB3927 /* ViewControllerTraitorPlay.swift */; };
+		97B1DAFA1D84CDBB00770CD5 /* ViewControllerTracerCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B1DAF91D84CDBB00770CD5 /* ViewControllerTracerCountdown.swift */; };
+		97B1DAFC1D84CE1D00770CD5 /* ViewControllerTraitorCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B1DAFB1D84CE1D00770CD5 /* ViewControllerTraitorCountdown.swift */; };
 		97BB80031D76A01A00D73C6B /* ViewControllerSetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB80021D76A01A00D73C6B /* ViewControllerSetGame.swift */; };
 		97D138411D79404900EED46E /* ViewControllerSetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D138401D79404900EED46E /* ViewControllerSetKey.swift */; };
 		97EF093D1D7E895800E54EA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97EF093B1D7E895800E54EA7 /* Main.storyboard */; };
@@ -76,6 +78,8 @@
 		9680014D65BD7FD5247D3409 /* Pods-heis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-heis.release.xcconfig"; path = "Pods/Target Support Files/Pods-heis/Pods-heis.release.xcconfig"; sourceTree = "<group>"; };
 		971CCF441D75355F001F8D2D /* ViewControllerTracerPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTracerPlay.swift; sourceTree = "<group>"; };
 		978AA3281D7CF68600DB3927 /* ViewControllerTraitorPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTraitorPlay.swift; sourceTree = "<group>"; };
+		97B1DAF91D84CDBB00770CD5 /* ViewControllerTracerCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTracerCountdown.swift; sourceTree = "<group>"; };
+		97B1DAFB1D84CE1D00770CD5 /* ViewControllerTraitorCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTraitorCountdown.swift; sourceTree = "<group>"; };
 		97BB80021D76A01A00D73C6B /* ViewControllerSetGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSetGame.swift; sourceTree = "<group>"; };
 		97D138401D79404900EED46E /* ViewControllerSetKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSetKey.swift; sourceTree = "<group>"; };
 		97EF093C1D7E895800E54EA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				97EF093B1D7E895800E54EA7 /* Main.storyboard */,
 				97BB80021D76A01A00D73C6B /* ViewControllerSetGame.swift */,
 				97D138401D79404900EED46E /* ViewControllerSetKey.swift */,
+				97B1DAF91D84CDBB00770CD5 /* ViewControllerTracerCountdown.swift */,
+				97B1DAFB1D84CE1D00770CD5 /* ViewControllerTraitorCountdown.swift */,
 				971CCF441D75355F001F8D2D /* ViewControllerTracerPlay.swift */,
 				978AA3281D7CF68600DB3927 /* ViewControllerTraitorPlay.swift */,
 				8476FA0B1D69965E000F4750 /* Assets.xcassets */,
@@ -278,13 +284,16 @@
 				TargetAttributes = {
 					8476F9FC1D69965E000F4750 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					8476FA141D69965E000F4750 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 8476F9FC1D69965E000F4750;
 					};
 					8476FA1F1D69965F000F4750 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 8476F9FC1D69965E000F4750;
 					};
 				};
@@ -402,7 +411,9 @@
 				8476FA051D69965E000F4750 /* GameScene.swift in Sources */,
 				8476FA351D699752000F4750 /* SGameScene.swift in Sources */,
 				8476FA071D69965E000F4750 /* GameViewController.swift in Sources */,
+				97B1DAFC1D84CE1D00770CD5 /* ViewControllerTraitorCountdown.swift in Sources */,
 				8476FA331D6996B9000F4750 /* MainMenuScene.swift in Sources */,
+				97B1DAFA1D84CDBB00770CD5 /* ViewControllerTracerCountdown.swift in Sources */,
 				97BB80031D76A01A00D73C6B /* ViewControllerSetGame.swift in Sources */,
 				8476FA011D69965E000F4750 /* AppDelegate.swift in Sources */,
 			);
@@ -551,6 +562,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.heis.heis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -563,6 +575,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.heis.heis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -575,6 +588,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.heis.heisTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/heis.app/heis";
 			};
 			name = Debug;
@@ -587,6 +601,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.heis.heisTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/heis.app/heis";
 			};
 			name = Release;
@@ -599,6 +614,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.heis.heisUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = heis;
 			};
 			name = Debug;
@@ -610,6 +626,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.heis.heisUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = heis;
 			};
 			name = Release;

@@ -30,41 +30,41 @@ class ViewControllerSetKey: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
 
-        var coord = CLLocationCoordinate2D(latitude: gameLatitude, longitude: gameLongitude)
+        let coord = CLLocationCoordinate2D(latitude: gameLatitude, longitude: gameLongitude)
         mapView.camera = GMSCameraPosition(target: coord, zoom: Float(gameZoomLevel), bearing: 0, viewingAngle: 0)
         
     }
 
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == .AuthorizedWhenInUse) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if (status == .authorizedWhenInUse) {
             locationManager.startUpdatingLocation()
-            mapView.myLocationEnabled = true
+            mapView.isMyLocationEnabled = true
             
         }
     }
     
-    @IBAction func startGameButton(sender: UIButton) {
+    @IBAction func startGameButton(_ sender: UIButton) {
         if (gameRole == true) {
-            self.performSegueWithIdentifier("setKey-tracerPlay", sender: self)
+            self.performSegue(withIdentifier: "setKey-tracerCountdown", sender: self)
             print("gameRole true")
         }
         else {
-            self.performSegueWithIdentifier("setKey-traitorPlay", sender: self)
+            self.performSegue(withIdentifier: "setKey-traitorCountdown", sender: self)
             print("gameRole false")
         }
         
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "setKey-tracerPlay") {
-            var VCSetGame = segue.destinationViewController as! ViewControllerTracerPlay;
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if (segue.identifier == "setKey-tracerCountdown") {
+            let VCSetGame = segue.destination as! ViewControllerTracerCountdown;
             VCSetGame.gameZoomLevel = gameZoomLevel
             VCSetGame.gameLatitude = gameLatitude
             VCSetGame.gameLongitude = gameLongitude
             VCSetGame.gameRole = gameRole
             VCSetGame.gameCountdownMinutes = gameCountdownMinutes
         }
-        if (segue.identifier == "setKey-traitorPlay") {
-            var VCSetGame = segue.destinationViewController as! ViewControllerTraitorPlay;
+        if (segue.identifier == "setKey-traitorCountdown") {
+            let VCSetGame = segue.destination as! ViewControllerTraitorCountdown;
             VCSetGame.gameZoomLevel = gameZoomLevel
             VCSetGame.gameLatitude = gameLatitude
             VCSetGame.gameLongitude = gameLongitude
@@ -75,7 +75,7 @@ class ViewControllerSetKey: UIViewController, CLLocationManagerDelegate {
     }
 
 
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             //mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: Float(gameZoomLevel), bearing: 0, viewingAngle: 0)
             
@@ -93,44 +93,3 @@ class ViewControllerSetKey: UIViewController, CLLocationManagerDelegate {
     
     
 }
-
-/*
-import UIKit
-import GoogleMaps
-
-
-class ViewControllerSetKey: UIViewController {
-    @IBOutlet weak var mapView: GMSMapView!
-    
-    var gameZoomLevel: Double!
-    var gameLatitude: Double!
-    var gameLongitude: Double!
-    var gameRole: Bool!
-
-   /* override func loadView() {
-        print("we")
-        let camera = GMSCameraPosition.cameraWithLatitude(33, longitude: 33, zoom: 15)
-        mapView = GMSMapView.mapWithFrame(.zero, camera: camera)
-        self.view = mapView
-    }*/
-
-    override func viewDidLoad() {
-        print("le")
-        super.viewDidLoad()
-        
-        print(gameLongitude)
-        print(gameLatitude)
-        print(gameZoomLevel)
-        print(gameRole)
-
-        // Do view setup here.
-        //let camera = GMSCameraPosition.cameraWithLatitude(gameLatitude, longitude: gameLongitude, zoom: Float(gameZoomLevel))
-        //let camera = GMSCameraPosition.cameraWithLatitude(33, longitude: 33, zoom: 15.0)
-
-        //mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
-        //mapView.myLocationEnabled = true
-
-    }
-
-    
-}*/

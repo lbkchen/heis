@@ -9,15 +9,15 @@
 import SpriteKit
 
 class MainMenuScene: SKScene {
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         /* Setup scene */
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-            let pos = touch.locationInNode(self)
-            let node = self.nodeAtPoint(pos)
+            let pos = touch.location(in: self)
+            let node = self.atPoint(pos)
             
             /* Conditionals for which menu buttons were pressed */
         }
