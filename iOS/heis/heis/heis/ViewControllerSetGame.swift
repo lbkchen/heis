@@ -34,13 +34,13 @@ class ViewControllerSetGame: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         
         // Programatically creating zoom increase button
-        zoomIncButton.backgroundColor = UIColor.black
+        zoomIncButton.backgroundColor = UIColor.blue
         zoomIncButton.setTitle("Increase Zoom", for: UIControlState())
         zoomIncButton.addTarget(self, action: #selector(zoomIncButtonAction), for: .touchUpInside)
         self.view.addSubview(zoomIncButton)
         
         // Programatically creating zoom decrease button
-        //zoomDecButton.backgroundColor = .black()
+        zoomDecButton.backgroundColor = UIColor.green
         zoomDecButton.setTitle("Decrease Zoom", for: UIControlState())
         zoomDecButton.addTarget(self, action: #selector(zoomDecButtonAction), for: .touchUpInside)
         self.view.addSubview(zoomDecButton)

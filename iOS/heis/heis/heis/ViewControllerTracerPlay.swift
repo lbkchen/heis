@@ -44,13 +44,13 @@ class ViewControllerTracerPlay: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         
         // Programatically creating location button
-        //locationButton.backgroundColor = .blue()
+        locationButton.backgroundColor = UIColor.blue
         locationButton.setTitle("Location", for: UIControlState())
         locationButton.addTarget(self, action: #selector(locationButtonAction), for: .touchUpInside)
         self.view.addSubview(locationButton)
         
         // Programatically creating velocity button
-        //velocityButton.backgroundColor = .black()
+        velocityButton.backgroundColor = UIColor.green
         velocityButton.setTitle("Velocity", for: UIControlState())
         velocityButton.addTarget(self, action: #selector(velocityButtonAction), for: .touchUpInside)
         self.view.addSubview(velocityButton)

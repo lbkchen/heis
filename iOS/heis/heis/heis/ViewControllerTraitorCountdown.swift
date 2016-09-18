@@ -39,7 +39,7 @@ class ViewControllerTraitorCountdown: UIViewController, CLLocationManagerDelegat
         }
         
         if (count == 0) {
-            self.performSegue(withIdentifier: "tracerCountdown-tracerPlay", sender: self)
+            self.performSegue(withIdentifier: "traitorCountdown-traitorPlay", sender: self)
         }
         
         

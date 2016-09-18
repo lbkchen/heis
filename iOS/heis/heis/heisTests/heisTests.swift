@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import heis
 
 
 class heisTests: XCTestCase {
