@@ -20,6 +20,7 @@ class ViewControllerTraitorCountdown: UIViewController, CLLocationManagerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         count = gameCountdownMinutes * 2
+        // TODO: Change above
         
         var timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("countdownTimerAction"), userInfo: nil, repeats: true)
         
